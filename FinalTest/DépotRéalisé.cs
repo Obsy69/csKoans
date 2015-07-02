@@ -14,5 +14,20 @@ namespace FinalTest
             _montantDepot = montantDepot;
             _dateDepot = dateDepot;
         }
+
+        public string NuméroDeCompte
+        {
+            get { return _numéroDeCompte; }
+        }
+
+        public Montant MontantDepot
+        {
+            get { return _montantDepot; }
+        }
+
+        public DateTime DateDepot
+        {
+            get { return _dateDepot; }
+        }
     }
 }

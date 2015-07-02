@@ -16,6 +16,13 @@ namespace FinalTest
             _numéroDeCompte = compteCréé.NuméroDeCompte;
         }
 
+        public CompteBancaire(CompteCréé compteCréé, DépotRéalisé dépotRéalisé)
+        {
+            _numéroDeCompte = compteCréé.NuméroDeCompte;
+            _montantDepot = dépotRéalisé.MontantDepot;
+            _dateDepot = dépotRéalisé.DateDepot;
+        }
+
         public static IEnumerable<IEvenementMetier> Ouvrir(string numéroDeCompte, int autorisationDeCrédit)
         {
             var nouveauCompte = new CompteCréé(numéroDeCompte,autorisationDeCrédit);
@@ -28,6 +35,13 @@ namespace FinalTest
             var nouveauDepot = new DépotRéalisé(_numéroDeCompte, montantDepot, dateDepot);
 
             yield return nouveauDepot;
+        }
+
+        public IEnumerable<IEvenementMetier> FaireUnRetrait(Montant montantRetrait, DateTime dateRetrait)
+        {
+            var nouveauRetrait = new RetraitRéalisé(_numéroDeCompte, montantRetrait, dateRetrait);
+
+            yield return nouveauRetrait;
         }
     }
 
