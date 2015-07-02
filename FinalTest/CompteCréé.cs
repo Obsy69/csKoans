@@ -1,6 +1,6 @@
 ﻿namespace FinalTest
 {
-    public struct CompteCréé : IEvenementMetier
+    public struct CompteCréé : IEvénementMétier
     {
         private string _numéroDeCompte;
         private int _autorisationDeCrédit;

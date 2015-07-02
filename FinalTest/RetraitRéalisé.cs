@@ -2,7 +2,7 @@
 
 namespace FinalTest
 {
-    public struct RetraitRéalisé : IEvenementMetier
+    public struct RetraitRéalisé : IEvénementMétier
     {
         private string _numéroDeCompte;
         private Montant _montantRetrait;

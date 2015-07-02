@@ -1,6 +1,6 @@
 ﻿namespace FinalTest
 {
-    public interface IEvenementMetier
+    public interface IEvénementMétier
     {
     }
 }

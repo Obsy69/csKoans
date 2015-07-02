@@ -8,5 +8,10 @@
         {
             _montantDepot = montantDepot;
         }
+
+        public int MontantDepot
+        {
+            get { return _montantDepot; }
+        }
     }
 }

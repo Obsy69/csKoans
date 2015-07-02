@@ -23,23 +23,31 @@ namespace FinalTest
             _dateDepot = dépotRéalisé.DateDepot;
         }
 
-        public static IEnumerable<IEvenementMetier> Ouvrir(string numéroDeCompte, int autorisationDeCrédit)
+        public static IEnumerable<IEvénementMétier> Ouvrir(string numéroDeCompte, int autorisationDeCrédit)
         {
             var nouveauCompte = new CompteCréé(numéroDeCompte,autorisationDeCrédit);
 
             yield return nouveauCompte;
         }
 
-        public IEnumerable<IEvenementMetier> FaireUnDepot(Montant montantDepot, DateTime dateDepot)
+        public IEnumerable<IEvénementMétier> FaireUnDepot(Montant montantDepot, DateTime dateDepot)
         {
             var nouveauDepot = new DépotRéalisé(_numéroDeCompte, montantDepot, dateDepot);
 
             yield return nouveauDepot;
         }
 
-        public IEnumerable<IEvenementMetier> FaireUnRetrait(Montant montantRetrait, DateTime dateRetrait)
+        public IEnumerable<IEvénementMétier> FaireUnRetrait(Montant montantRetrait, DateTime dateRetrait)
         {
             var nouveauRetrait = new RetraitRéalisé(_numéroDeCompte, montantRetrait, dateRetrait);
+
+            if (_montantDepot.MontantDepot < 0)
+            {
+                var balanceNegative = new BalanceNégativeDétectée(_numéroDeCompte, montantRetrait, dateRetrait);
+
+                yield return balanceNegative;
+            }
+
 
             yield return nouveauRetrait;
         }
