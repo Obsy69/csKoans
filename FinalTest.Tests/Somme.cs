@@ -22,12 +22,12 @@ namespace FinalTest.Tests
         public int Calculer(string p)
         {
             int s = 0;
-            string[] produit;
+            string[] somme;
 
             if (PeutCalculer(p))
             {
-                produit = p.Split('*');
-                s = Int32.Parse(produit[1]) * Int32.Parse(produit[0]);
+                somme = p.Split('+');
+                s = Int32.Parse(somme[1]) + Int32.Parse(somme[0]);
             }
 
             return s;
