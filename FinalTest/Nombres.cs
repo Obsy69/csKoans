@@ -13,6 +13,11 @@ namespace FinalTest
             _keyValuePairs = keyValuePairs;
         }
 
+        public Nombres(IEnumerable<KeyValuePair<string, int>> otherKeyValuePairs)
+        {
+            _keyValuePairs = otherKeyValuePairs;
+        }
+
         public IEnumerable<int> NombresPairs
         {
             get { return _keyValuePairs.Select(s => s.Value).Where(s => (s % 2 == 0)); }
