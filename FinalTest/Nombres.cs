@@ -35,7 +35,7 @@ namespace FinalTest
 
         public IEnumerable<int> QuatreNombresSupérieursSuivant3
         {
-            get { return _keyValuePairs.OrderBy(s => s.Value).Skip(3).Take(4).Select(s => s.Value); }
+            get { return _keyValuePairs.OrderBy(s => s.Value).Where(s => s.Value > 3).Take(4).Select(s => s.Value); }
         }
     }
 }
