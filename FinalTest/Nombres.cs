@@ -22,5 +22,10 @@ namespace FinalTest
         {
             get { return _keyValuePairs.Select(s => s.Value).Where(s => (s % 2 == 0)); }
         }
+
+        public string TexteNombresImpairs
+        {
+            get { return _keyValuePairs.OrderBy(s => s.Value).Where(s => (s.Value % 2 != 0)).Select(s => s.Key).Aggregate((s, s1) => s + ", " + s1) ; }
+        }
     }
 }
