@@ -32,5 +32,10 @@ namespace FinalTest
         {
             get { return _keyValuePairs.Where(s => (s.Key.Length > 5)).Select(s => s.Key).First(); }
         }
+
+        public IEnumerable<int> QuatreNombresSupérieursSuivant3
+        {
+            get { return _keyValuePairs.OrderBy(s => s.Value).Skip(3).Take(4).Select(s => s.Value); }
+        }
     }
 }
