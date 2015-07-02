@@ -27,5 +27,10 @@ namespace FinalTest
         {
             get { return _keyValuePairs.OrderBy(s => s.Value).Where(s => (s.Value % 2 != 0)).Select(s => s.Key).Aggregate((s, s1) => s + ", " + s1) ; }
         }
+
+        public string PremierNombreDontLeTexteContientPlusDe5Caractères
+        {
+            get { return _keyValuePairs.OrderBy(s => s.Key).Where(s => (s.Key.Length > 5)).Select(s => s.Key).First(); }
+        }
     }
 }
