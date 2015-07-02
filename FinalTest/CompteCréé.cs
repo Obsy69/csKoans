@@ -11,5 +11,9 @@
             this._autorisationDeCrédit = autorisationDeCrédit;
         }
 
+        public string NuméroDeCompte
+        {
+            get { return _numéroDeCompte; }
+        }
     }
 }
