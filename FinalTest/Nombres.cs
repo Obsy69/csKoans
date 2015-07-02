@@ -30,7 +30,7 @@ namespace FinalTest
 
         public string PremierNombreDontLeTexteContientPlusDe5Caractères
         {
-            get { return _keyValuePairs.OrderBy(s => s.Key).Where(s => (s.Key.Length > 5)).Select(s => s.Key).First(); }
+            get { return _keyValuePairs.Where(s => (s.Key.Length > 5)).Select(s => s.Key).First(); }
         }
     }
 }
